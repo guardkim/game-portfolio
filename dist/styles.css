@@ -296,6 +296,9 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
   .contact-section { margin-inline: -17px; padding-inline: 17px; }
   .email { font-size: 13px; }
 }
+@media (min-width: 1001px) and (max-height: 800px) {
+  .profile-rail { position: static; min-height: 0; height: auto; }
+}
 @media (prefers-reduced-motion: reduce) {
   .is-interactive .project-panel { animation: none; }
 }
