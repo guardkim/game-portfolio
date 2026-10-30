@@ -1,53 +1,25 @@
-const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-const motionButton = document.querySelector('.motion-toggle');
-let paused = motionPreference.matches;
-try { paused = paused || localStorage.getItem('portfolio-motion') === 'paused'; } catch { /* Storage can be disabled in private browsing. */ }
+const panels = [...document.querySelectorAll('.project-panel')];
+const projectLinks = [...document.querySelectorAll('.project-nav a')];
+const announcement = document.getElementById('project-announcement');
+let selectedProject = panels[0].id;
 
-function applyMotion() {
-  document.documentElement.dataset.motion = paused ? 'paused' : 'playing';
-  motionButton.setAttribute('aria-pressed', String(paused));
-  motionButton.setAttribute('aria-label', paused ? '모션 재생' : '모션 일시정지');
-  motionButton.querySelector('.motion-label').textContent = paused ? '모션 꺼짐' : '모션 켜짐';
-}
-applyMotion();
-motionButton.hidden = false;
-motionButton.addEventListener('click', () => {
-  paused = !paused;
-  applyMotion();
-  try { localStorage.setItem('portfolio-motion', paused ? 'paused' : 'playing'); } catch { /* The toggle still works without storage. */ }
-});
-motionPreference.addEventListener('change', (event) => {
-  paused = event.matches;
-  applyMotion();
-});
+function selectProject(announce = false) {
+  const requested = location.hash.slice(1) || panels[0].id;
+  const next = panels.find((panel) => panel.id === requested);
+  if (next) selectedProject = next.id;
 
-if ('IntersectionObserver' in window && !paused) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.remove('is-waiting');
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach((element) => {
-    element.classList.add('is-waiting');
-    observer.observe(element);
+  panels.forEach((panel) => { panel.hidden = panel.id !== selectedProject; });
+  projectLinks.forEach((link) => {
+    if (link.hash === `#${selectedProject}`) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
   });
+
+  if (announce && next) {
+    announcement.textContent = `${next.querySelector('h2').textContent} 프로젝트를 표시합니다.`;
+    document.getElementById('main').scrollIntoView({ block: 'start' });
+  }
 }
 
-document.querySelectorAll('[data-dialog]').forEach((button) => {
-  button.addEventListener('click', () => {
-    const dialog = document.getElementById(button.dataset.dialog);
-    dialog.showModal();
-    dialog.scrollTop = 0;
-  });
-});
-
-document.querySelectorAll('.project-dialog').forEach((dialog) => {
-  dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('click', (event) => {
-    if (event.target !== dialog) return;
-    const bounds = dialog.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
-  });
-});
+selectProject();
+document.querySelector('.projects').classList.add('is-interactive');
+window.addEventListener('hashchange', () => selectProject(true));

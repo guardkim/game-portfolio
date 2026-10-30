@@ -1,4 +1,4 @@
-"""Dependency-free checks for links, downloads and project dialog wiring."""
+"""Dependency-free checks for links, downloads and project navigation."""
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -11,8 +11,9 @@ class Page(HTMLParser):
         super().__init__()
         self.ids = set()
         self.references = []
-        self.dialogs = set()
-        self.triggers = []
+        self.projects = set()
+        self.project_links = []
+        self.in_project_nav = False
         self.downloads = []
         self.headings = 0
 
@@ -21,12 +22,16 @@ class Page(HTMLParser):
         if "id" in attrs:
             assert attrs["id"] not in self.ids, f"Duplicate ID: {attrs['id']}"
             self.ids.add(attrs["id"])
-        if tag == "dialog":
-            self.dialogs.add(attrs["id"])
-            assert attrs.get("aria-labelledby"), "Dialog must have an accessible title"
-            self.references.append("#" + attrs["aria-labelledby"])
-        if "data-dialog" in attrs:
-            self.triggers.append(attrs["data-dialog"])
+        classes = attrs.get("class", "").split()
+        if tag == "section" and "project-panel" in classes:
+            self.projects.add(attrs["id"])
+            assert attrs.get("aria-labelledby"), "Project must have an accessible title"
+            assert "hidden" not in attrs, "Project content must be available without JavaScript"
+            self.references.extend("#" + label for label in attrs["aria-labelledby"].split())
+        if tag == "nav" and ("project-nav" in classes or attrs.get("id") == "project-nav"):
+            self.in_project_nav = True
+        if tag == "a" and self.in_project_nav:
+            self.project_links.append(attrs.get("href"))
         if tag == "h1":
             self.headings += 1
         if tag == "img":
@@ -40,13 +45,17 @@ class Page(HTMLParser):
             if attrs.get(attr):
                 self.references.append(attrs[attr])
 
+    def handle_endtag(self, tag):
+        if tag == "nav":
+            self.in_project_nav = False
+
 
 page = Page()
 page.feed((ROOT / "index.html").read_text(encoding="utf-8"))
 assert page.headings == 1
-assert len(page.dialogs) == 4
-assert set(page.triggers) == page.dialogs
-assert len(page.triggers) == 8
+assert page.projects == {"gunpowder", "cravant", "cyberfunk", "swordlord"}
+assert len(page.project_links) == 4
+assert set(page.project_links) == {"#" + project for project in page.projects}
 for reference in page.references:
     url = urlsplit(reference)
     if url.scheme or url.netloc:
@@ -62,11 +71,12 @@ for reference in page.references:
     if url.fragment and target.suffix != ".pdf":
         assert url.fragment in page.ids, f"Missing fragment: {reference}"
 
-assert len(set(page.downloads)) == 1
+downloads = {unquote(urlsplit(download).path) for download in page.downloads}
+assert downloads == {"assets/documents/kim-kyoungho-portfolio.pdf"}
 assert {path.name for path in (ROOT / "assets/documents").glob("*.pdf")} == {"kim-kyoungho-portfolio.pdf"}
-for download in set(page.downloads):
-    with (ROOT / unquote(urlsplit(download).path)).open("rb") as stream:
+for download in downloads:
+    with (ROOT / download).open("rb") as stream:
         assert stream.read(5) == b"%PDF-", f"Invalid PDF: {download}"
 assert (ROOT / ".nojekyll").is_file()
 assert "prefers-reduced-motion" in (ROOT / "styles.css").read_text(encoding="utf-8")
-print(f"PASS: {len(page.references)} references, 4 project dialogs, portfolio-only PDF download, relative Pages paths.")
+print(f"PASS: {len(page.references)} references, 4 project panels and navigation links, portfolio-only PDF download, relative Pages paths.")

@@ -1,6 +1,8 @@
 # 김경호 게임 개발 포트폴리오
 
-게임회사에 소개하기 위한 한국어 포트폴리오 사이트입니다. 프로젝트 소개, 모션 효과, 포트폴리오 PDF 다운로드를 제공합니다. HTML, CSS, JavaScript로 구성되어 별도 빌드 없이 GitHub Pages에서 서비스할 수 있습니다.
+게임회사에 소개하기 위한 한국어 포트폴리오 사이트입니다. 프로젝트를 선택하면 실제 게임 화면, 담당 업무와 문제 해결 과정을 한 화면에서 읽을 수 있습니다. HTML, CSS, JavaScript로 구성되어 별도 빌드 없이 GitHub Pages에서 서비스할 수 있습니다.
+
+프로젝트 목차는 각 프로젝트의 주소(`#gunpowder`, `#cravant`, `#cyberfunk`, `#swordlord`)로 연결됩니다. JavaScript를 사용할 때는 선택한 프로젝트를 표시하고, 사용할 수 없을 때는 네 프로젝트를 모두 읽을 수 있습니다. 포트폴리오 PDF 다운로드와 이메일·GitHub 링크를 제공합니다.
 
 ## 로컬 미리보기
 
@@ -14,7 +16,10 @@ python -m http.server 4173 --directory dist
 
 ```sh
 python scripts/check_site.py
+node scripts/check_navigation.js
 ```
+
+검사는 네 프로젝트의 제목·목차 연결, 이미지 설명·크기, 내부 링크, 포트폴리오 PDF만 배포되는지와 주소 변경에 따른 프로젝트 선택을 확인합니다. 실제 화면 전환과 반응형 배치는 브라우저에서 확인하세요.
 
 ## 수정 위치
 
@@ -22,7 +27,8 @@ python scripts/check_site.py
 | --- | --- |
 | `dist/index.html` | 소개, 경력, 프로젝트 설명, 연락처, 다운로드 링크 |
 | `dist/styles.css` | 레이아웃, 색상, 글꼴, 반응형 화면, CSS 모션 |
-| `dist/script.js` | 사이트 상호작용과 모션 제어 |
+| `dist/script.js` | 프로젝트 선택과 주소 연결 |
+| `DESIGN.md` | 디자인 방향, 색상·타이포그래피·레이아웃 원칙 |
 | `dist/assets/images/` | 사용자 포트폴리오에서 추출한 프로젝트 이미지 |
 | `dist/assets/documents/kim-kyoungho-portfolio.pdf` | 전화번호를 삭제한 공개용 포트폴리오 |
 | `.github/workflows/deploy.yml` | `main` 변경 시 검사와 GitHub Pages 배포 |
@@ -39,7 +45,7 @@ python scripts/check_site.py
 4. **Actions → Deploy to GitHub Pages → Run workflow**를 실행하거나 `main`에 변경을 푸시합니다.
 5. 배포가 완료되면 Actions 실행 결과 또는 Settings → Pages에 표시되는 주소를 엽니다.
 
-워크플로는 `python scripts/check_site.py`를 통과한 뒤 `dist/`만 배포합니다. 새 저장소의 기본 브랜치가 `main`이 아니라면 워크플로의 `branches`도 맞춰야 합니다.
+워크플로는 사이트와 프로젝트 선택 검사를 통과한 뒤 `dist/`만 배포합니다. 새 저장소의 기본 브랜치가 `main`이 아니라면 워크플로의 `branches`도 맞춰야 합니다.
 
 배포 설정은 [GitHub 공식 문서](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)를 참고하세요.
 
