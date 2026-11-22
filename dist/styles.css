@@ -40,7 +40,6 @@ button,summary,a { touch-action: manipulation; }
 .header-links { margin-left: auto; gap: 16px; font-size: 13px; }
 .header-links a:hover { text-decoration: underline; }
 .header-links span { margin-left: 4px; }
-.case-shortcut { color: var(--accent); }
 .award-banner { margin-top: 18px; }
 .award-banner img { width: 100%; height: auto; }
 .award-banner figcaption { padding-bottom: 0; }
