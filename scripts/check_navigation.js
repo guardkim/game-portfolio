@@ -11,7 +11,6 @@ function loadPage(hash = '') {
   const panels = Object.entries(titles).map(([id, textContent]) => ({
     id,
     hidden: false,
-    querySelectorAll(selector) { assert.equal(selector, 'video'); return []; },
     scrollIntoView(options) { scrollCalls.push(options.block); },
     querySelector(selector) { assert.equal(selector, 'h2'); return { textContent }; },
   }));
@@ -27,6 +26,7 @@ function loadPage(hash = '') {
   const location = { hash };
   const document = {
     querySelectorAll(selector) {
+      if (selector === '.replay-toggle') return [];
       assert.ok(['.project-panel', '.project-nav a'].includes(selector));
       return selector === '.project-panel' ? panels : links;
     },

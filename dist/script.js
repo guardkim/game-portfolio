@@ -11,7 +11,6 @@ function selectProject(announce = false) {
 
   panels.forEach((panel) => {
     panel.hidden = panel.id !== selectedProject;
-    if (panel.hidden) panel.querySelectorAll('video').forEach((video) => video.pause());
   });
   projectLinks.forEach((link) => {
     if (link.hash === `#${selectedProject}`) link.setAttribute('aria-current', 'location');
@@ -32,3 +31,18 @@ function selectProject(announce = false) {
 selectProject();
 document.querySelector('.projects').classList.add('is-interactive');
 window.addEventListener('hashchange', () => selectProject(true));
+
+document.querySelectorAll('.replay-toggle').forEach((button) => {
+  const still = button.closest('figure').querySelector('.replay source');
+  const preference = window.matchMedia(still.media);
+
+  function setPlayback(playing) {
+    still.media = playing ? 'not all' : 'all';
+    button.textContent = playing ? '움직임 멈추기' : 'GIF 재생';
+  }
+
+  setPlayback(!preference.matches);
+  button.hidden = false;
+  button.addEventListener('click', () => setPlayback(still.media === 'all'));
+  preference.addEventListener('change', (event) => setPlayback(!event.matches));
+});
