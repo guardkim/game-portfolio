@@ -51,9 +51,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
 .project-index[aria-current] img { filter: none; }
 .rail-bottom { margin-top: auto; }
 .rail-about { display: inline-block; font-size: 12px; margin: 0 0 19px; }
-.pdf-button { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 17px; border: 1px solid #c5cfd9; border-radius: 6px; font-size: 12px; font-weight: 600; }
-.pdf-button small { display: block; font-size: 10px; color: var(--muted); font-weight: 400; margin-top: 2px; }
-.pdf-button:hover { border-color: var(--accent); color: var(--accent); background: #f6f8fa; }
 
 .folio { background: var(--paper); border-radius: 19px 19px 0 0; padding: 36px 45px 0; min-width: 0; }
 .folio-header { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding-bottom: 30px; border-bottom: 1px solid var(--line); }
@@ -95,7 +92,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
 .video-link, .source-link { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 5px; background: var(--accent); color: #fff; padding: 10px 14px; }
 .project-links .video-link:hover, .project-links .source-link:hover { color: white; background: #7f354c; text-decoration: none; }
 .video-link .icon { width: 15px; height: 15px; }
-.document-link span { display: block; font-size: 9px; color: var(--muted); font-weight: 400; margin-top: 1px; }
 
 .case-layout { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,1fr); gap: 50px; padding: 46px 0 60px; align-items: center; }
 .case-label { color: var(--accent); font-size: 11px; font-weight: 600; margin-bottom: 13px; }
@@ -145,7 +141,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
 .footer-links { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; font-size: 11px; }
 .footer-links a { display: inline-flex; align-items: center; gap: 13px; }
 .footer-links a:hover { color: var(--accent); }
-.footer-links .icon { width: 16px; height: 16px; }
 .copyright { width: 100%; font-size: 9px; color: #7a8797; margin-top: 12px; }
 @keyframes project-enter { from { opacity: .4; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
@@ -190,8 +185,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
   .project-index[aria-current]::before { top: auto; left: 12px; right: 12px; bottom: -1px; width: auto; height: 2px; }
   .rail-bottom { margin-top: 10px; justify-self: end; align-self: start; display: flex; flex-direction: column-reverse; width: 185px; }
   .rail-about { margin: 12px 0 0; text-align: right; font-size: 10px; }
-  .pdf-button { font-size: 11px; padding: 12px 14px; }
-  .pdf-button small { font-size: 9px; }
   .folio { padding: 30px 35px 0; }
   .folio-header { padding-bottom: 22px; }
   .project-panel { padding-top: 29px; }
@@ -212,9 +205,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
   .profile-links a { font-size: 10px; gap: 5px; }
   .profile-links .icon { width: 14px; height: 14px; }
   .rail-bottom { width: 147px; margin-top: 2px; }
-  .pdf-button { font-size: 10px; padding: 11px; gap: 8px; }
-  .pdf-button small { font-size: 8px; }
-  .pdf-button .icon { width: 15px; height: 15px; }
   .rail-about { font-size: 9px; }
   .project-nav { grid-template-columns: 1fr 1fr; gap: 6px 11px; }
   .project-index { min-height: 61px; gap: 11px; padding: 10px; }

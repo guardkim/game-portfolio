@@ -71,12 +71,9 @@ for reference in page.references:
     if url.fragment and target.suffix != ".pdf":
         assert url.fragment in page.ids, f"Missing fragment: {reference}"
 
-downloads = {unquote(urlsplit(download).path) for download in page.downloads}
-assert downloads == {"assets/documents/kim-kyoungho-portfolio.pdf"}
-assert {path.name for path in (ROOT / "assets/documents").glob("*.pdf")} == {"kim-kyoungho-portfolio.pdf"}
-for download in downloads:
-    with (ROOT / download).open("rb") as stream:
-        assert stream.read(5) == b"%PDF-", f"Invalid PDF: {download}"
+assert not page.downloads, "Unexpected download link"
+assert not any(urlsplit(ref).path.lower().endswith(".pdf") for ref in page.references)
+assert {p.name for p in ROOT.rglob("*.pdf")} == {"kim-kyoungho-portfolio.pdf"}
 assert (ROOT / ".nojekyll").is_file()
 assert "prefers-reduced-motion" in (ROOT / "styles.css").read_text(encoding="utf-8")
-print(f"PASS: {len(page.references)} references, 4 project panels and navigation links, portfolio-only PDF download, relative Pages paths.")
+print(f"PASS: {len(page.references)} references, 4 project panels and navigation links, no PDF links, relative Pages paths.")
