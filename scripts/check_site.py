@@ -68,12 +68,12 @@ for reference in page.references:
     target = (ROOT / unquote(url.path)).resolve()
     assert target.is_relative_to(ROOT.resolve()), f"Path escapes dist: {reference}"
     assert target.is_file(), f"Missing file: {reference}"
-    if url.fragment and target.suffix != ".pdf":
+    if url.fragment:
         assert url.fragment in page.ids, f"Missing fragment: {reference}"
 
 assert not page.downloads, "Unexpected download link"
 assert not any(urlsplit(ref).path.lower().endswith(".pdf") for ref in page.references)
-assert {p.name for p in ROOT.rglob("*.pdf")} == {"kim-kyoungho-portfolio.pdf"}
+assert not any(p.suffix.lower() == ".pdf" for p in ROOT.rglob("*")), "PDF in deployment"
 assert (ROOT / ".nojekyll").is_file()
 assert "prefers-reduced-motion" in (ROOT / "styles.css").read_text(encoding="utf-8")
-print(f"PASS: {len(page.references)} references, 4 project panels and navigation links, no PDF links, relative Pages paths.")
+print(f"PASS: {len(page.references)} references, 4 project panels and navigation links, no PDF files or links, relative Pages paths.")
