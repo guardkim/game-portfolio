@@ -10,26 +10,26 @@
   <meta property="og:type" content="website">
   <title>김경호 | 게임 클라이언트 개발자</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=presskit-1">
+  <link rel="stylesheet" href="styles.css?v=portfolio-nav-2">
   <script src="script.js?v=gif-20261122" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
   <div class="shell">
     <header id="top" class="masthead">
-      <div class="identity"><h1>김경호</h1><p>게임 클라이언트 개발자</p></div>
-      <p class="current-role">라이크코퍼레이션에서 Unity 6 VR 클라이언트를 개발하고 있습니다. <a href="#about">경력 보기</a></p>
-      <div class="contact-links"><a href="https://github.com/guardkim" target="_blank" rel="noopener noreferrer">GitHub</a> <a href="mailto:kimkyoungho0726@gmail.com">이메일</a></div>
-    </header>
-    <div class="navigation">
+      <h1 class="wordmark">김경호</h1>
       <nav class="project-nav" aria-label="프로젝트 선택">
         <a href="#gunpowder">GunPowder</a>
         <a href="#cravant">CRAVANT</a>
         <a href="#cyberfunk">Cyberfunk Rider</a>
         <a href="#swordlord">검물주 키우기</a>
       </nav>
-      <a class="case-shortcut" href="#cravant-team">CRAVANT 팀 배정 사례 보기</a>
-    </div>
+      <div class="header-links">
+        <a class="case-shortcut" href="#cravant-team">CRAVANT 팀 배정 사례</a>
+        <a href="#about">경력</a>
+        <a href="https://github.com/guardkim" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
     <main id="main">
       <p id="project-announcement" class="sr-only" role="status" aria-live="polite"></p>
       <div class="projects">
@@ -46,6 +46,10 @@
               <p class="technology">Unity 6 / C# / Photon PUN2 / 뒤끝 / Firebase</p>
             </div>
           </div>
+          <figure class="award-banner">
+            <img src="assets/images/gunpowder-comon-award.webp" width="2000" height="300" alt="유쾌하고 역동적인 한 판! 우수상 「GunPowder」">
+            <figcaption>제2회 컴투스 글로벌 게임개발 공모전 컴:온 <span>2026.04.09 팀 수상</span></figcaption>
+          </figure>
           <figure class="combat-replay">
             <div class="filmstrip">
               <picture class="replay"><source media="(prefers-reduced-motion: reduce)" srcset="assets/clips/gunpowder-combat.webp"><img src="assets/clips/gunpowder-combat.gif" width="426" height="240" alt="폭탄에 맞은 캐릭터가 밀려나는 전투 GIF" loading="lazy"></picture>
@@ -54,7 +58,7 @@
             </div>
             <figcaption><strong>피격 후 캐릭터의 위치 변화</strong><span><button class="replay-toggle" type="button" hidden>움직임 멈추기</button> <a href="https://www.youtube.com/watch?v=O5IymjGapmk" target="_blank" rel="noopener noreferrer">전체 게임 영상</a></span></figcaption>
           </figure>
-          <p class="credits">G-STAR 2025 인디쇼케이스 참가 <span>컴투스 컴:온 공모전 우수상 · 2026.04 팀 수상</span></p>
+          <p class="credits">G-STAR 2025 인디쇼케이스 참가</p>
           <div class="case-layout">
             <article><h3>씬 전환 시 채팅 중복 수신</h3>
               <p>씬을 빠르게 전환하거나 재접속하면 같은 채널에 두 번 연결됐습니다. UI가 준비되기 전에 채팅 호출이 먼저 실행되는 경우도 있어, 씬 로드 순서에 의존하던 초기화 코드를 정리했습니다.</p>
