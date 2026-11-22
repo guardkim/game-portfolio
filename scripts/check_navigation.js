@@ -7,9 +7,12 @@ const source = readFileSync(path.join(__dirname, '../dist/script.js'), 'utf8');
 const titles = { gunpowder: 'GunPowder', cravant: 'CRAVANT', cyberfunk: 'Cyberfunk Rider', swordlord: '검물주 키우기' };
 
 function loadPage(hash = '') {
+  const scrollCalls = [];
   const panels = Object.entries(titles).map(([id, textContent]) => ({
     id,
     hidden: false,
+    querySelectorAll(selector) { assert.equal(selector, 'video'); return []; },
+    scrollIntoView(options) { scrollCalls.push(options.block); },
     querySelector(selector) { assert.equal(selector, 'h2'); return { textContent }; },
   }));
   const links = panels.map(({ id }) => ({
@@ -20,7 +23,6 @@ function loadPage(hash = '') {
   }));
   const announcement = { textContent: '' };
   const classes = new Set();
-  const scrollCalls = [];
   const events = new Map();
   const location = { hash };
   const document = {
@@ -33,6 +35,11 @@ function loadPage(hash = '') {
       return { classList: { add: (name) => classes.add(name) } };
     },
     getElementById(id) {
+      if (id === 'cravant-team') return {
+        closest(selector) { assert.equal(selector, '.project-panel'); return panels[1]; },
+        focus() {},
+        scrollIntoView() { scrollCalls.push('team case'); },
+      };
       assert.ok(['project-announcement', 'main'].includes(id));
       return id === 'project-announcement' ? announcement : { scrollIntoView: (options) => scrollCalls.push(options.block) };
     },
@@ -73,4 +80,13 @@ expectSelection(page, 'cravant');
 page.navigate('');
 expectSelection(page, 'gunpowder');
 assert.deepEqual(page.scrollCalls, ['start', 'start', 'start', 'start']);
-console.log('PASS: initial selection, deep links, project changes, about, history hashes and unknown hashes.');
+
+const directCase = loadPage('#cravant-team');
+expectSelection(directCase, 'cravant');
+assert.deepEqual(directCase.scrollCalls, ['team case']);
+page.navigate('#cravant-team');
+expectSelection(page, 'cravant');
+assert.equal(page.scrollCalls.at(-1), 'team case');
+page.navigate('#gunpowder');
+expectSelection(page, 'gunpowder');
+console.log('PASS: initial selection, project links, team case deep link, history and unknown hashes.');

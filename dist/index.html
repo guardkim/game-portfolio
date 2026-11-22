@@ -6,15 +6,15 @@
   <meta name="theme-color" content="#edf1f5">
   <meta name="description" content="게임 클라이언트 개발자 김경호. GunPowder, CRAVANT, Cyberfunk Rider, 검물주 키우기에서 맡은 구현과 문제 해결 과정을 소개합니다.">
   <meta property="og:title" content="김경호 | 게임 클라이언트 개발자">
-  <meta property="og:description" content="플레이어 시스템, 멀티플레이, 아이템과 성장. 만든 게임과 그 안에서 맡은 일을 소개합니다.">
+  <meta property="og:description" content="Unity 6 VR 클라이언트를 개발하는 김경호입니다. GunPowder 전투 구현과 CRAVANT 15인 매치 팀 배정 사례를 소개합니다.">
   <meta property="og:type" content="website">
   <title>김경호 | 게임 클라이언트 개발자</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Gothic+A1:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=studio-20261030.1">
-  <script src="script.js?v=studio-20261030" defer></script>
+  <link rel="stylesheet" href="styles.css?v=folio-20261122">
+  <script src="script.js?v=folio-20261122" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -26,9 +26,13 @@
   <div class="portfolio-shell">
     <aside class="profile-rail" aria-label="김경호 소개와 프로젝트 목록">
       <div class="identity">
-        <a class="name" href="#main">김경호<span aria-hidden="true">.</span></a>
+        <h1 class="name">김경호</h1>
         <p class="occupation">게임 클라이언트 개발자</p>
-        <p class="profile-intro">플레이어가 만나는 기능과<br>그 뒤의 시스템을 만듭니다.</p>
+        <a class="current-role" href="#about" aria-label="라이크코퍼레이션 경력 자세히 보기">
+          <p>라이크코퍼레이션</p>
+          <strong>Unity 6 VR 클라이언트 개발</strong>
+          <span>2026.06 – 현재</span>
+        </a>
         <div class="profile-links">
           <a href="https://github.com/guardkim" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#github"/></svg>GitHub</a>
           <a href="mailto:kimkyoungho0726@gmail.com"><svg class="icon"><use href="#mail"/></svg>이메일</a>
@@ -46,23 +50,37 @@
       </div>
     </aside>
     <main id="main" class="folio">
-      <header class="folio-header"><h1>만든 게임과, 그 안에서 맡은 일.</h1><span class="folio-signature">Kyoungho Kim</span></header>
+      <a class="case-shortcut" href="#cravant-team">
+        <img src="assets/images/cravant.webp" width="2666" height="1427" alt="CRAVANT">
+        <span><strong>CRAVANT 팀 배정 사례</strong><small>15인 매치에서 같은 파티가 갈라진 이유</small></span>
+        <span class="shortcut-action">사례 보기 <b aria-hidden="true">↗</b></span>
+      </a>
       <p id="project-announcement" class="sr-only" role="status" aria-live="polite"></p>
       <div class="projects">
         <section id="gunpowder" class="project-panel" aria-labelledby="gunpowder-title">
-          <div class="project-heading"><div><p class="project-genre">실시간 2D 플랫포머 대전</p><h2 id="gunpowder-title">GunPowder</h2></div><p class="project-period">팀 프로젝트<span>2025.09.22 시작</span></p></div>
-          <div class="project-showcase">
-            <figure class="game-figure"><img class="game-art" src="assets/images/gunpowder.webp" alt="폭탄을 주고받는 캐릭터와 맵을 담은 GunPowder 대표 이미지" width="1200" height="678" fetchpriority="high"><figcaption class="recognition"><span class="award-mark" aria-hidden="true">✳</span><span><strong>컴투스 컴:온 우수상</strong>제2회 글로벌 게임개발 공모전, 2026.04</span><span class="exhibition">G-STAR 2025<br>인디쇼케이스 참여</span></figcaption></figure>
-            <div class="contribution"><h3>제가 맡은 부분</h3><ul>
-              <li><strong>플레이어 시스템 리팩토링</strong><span>기존 작업을 이어받아 피격·넉백·반동을 수정하고 카트리지 기능을 추가했습니다.</span></li>
-              <li><strong>친구, 파티, 채팅</strong><span>친구 요청부터 파티 초대와 채팅까지 커뮤니티 흐름을 구현했습니다.</span></li>
-              <li><strong>맵 기믹 모듈화</strong><span>종료 30초 전 발동하는 허리업 시스템과 맵 기믹을 구현했습니다.</span></li>
-            </ul><p class="technology">Unity 6, C#, Photon PUN2, 뒤끝, Firebase</p></div>
+          <div class="combat-heading">
+            <div><p class="project-genre">실시간 2D 대전 게임</p><h2 id="gunpowder-title">GunPowder</h2></div>
+            <p class="project-period">팀 프로젝트<span>2025.09부터 개발 중</span></p>
           </div>
-          <div class="project-context"><p>상대의 GP를 빼앗아 폭탄을 강화하는 대전 게임입니다.<br>전투 기능과 게임 밖의 소셜 기능을 함께 다뤘습니다.</p><div class="project-links"><a class="video-link" href="https://www.youtube.com/watch?v=O5IymjGapmk" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#play"/></svg>게임 영상</a></div></div>
+          <div class="combat-showcase">
+            <figure class="combat-replay">
+              <video controls playsinline muted preload="metadata" width="426" height="240" poster="assets/clips/gunpowder-combat.webp" aria-label="GunPowder 전투 구현 영상"><source src="assets/clips/gunpowder-combat.mp4" type="video/mp4"></video>
+              <figcaption>폭탄이 터질 때의 피격과 넉백 <a href="https://www.youtube.com/watch?v=O5IymjGapmk" target="_blank" rel="noopener noreferrer">전체 게임 영상 ↗</a></figcaption>
+            </figure>
+            <div class="combat-copy"><p class="case-label">제가 맡은 전투 구현</p>
+              <h3>폭탄에 맞은 플레이어의 움직임을 고쳤습니다.</h3>
+              <p>기존 플레이어 코드를 이어받아 피격·넉백·반동을 수정했습니다. 폭탄마다 다른 값을 적용하고, 플레이어가 고른 카트리지 효과를 연결했습니다.</p>
+            </div>
+          </div>
+          <p class="team-credit"><strong>컴투스 컴:온 우수상</strong><span>2026년 4월 팀 수상</span><span>G-STAR 2025 인디쇼케이스 참여</span></p>
+          <div class="gun-systems">
+            <div><h3>친구·파티·채팅</h3><p>친구 요청과 수락, 파티 초대부터 게임 안에서 대화를 나누는 흐름까지 구현했습니다.</p></div>
+            <div><h3>맵 기믹</h3><p>맵 기믹을 모듈로 분리하고, 경기 종료 30초 전에 발동하는 허리업 시스템을 만들었습니다.</p></div>
+          </div>
+          <p class="technology">개발 환경 · Unity 6, C#, Photon PUN2, 뒤끝, Firebase</p>
           <div class="case-layout">
-            <article class="case-story"><p class="case-label">개발 중 해결한 문제</p><h3>씬을 바꾸면,<br>채팅이 두 번 도착했습니다.</h3><p>빠르게 씬을 전환하거나 재접속할 때 같은 채널에 중복으로 연결되고, UI 초기화보다 호출이 먼저 실행되는 문제가 있었습니다.</p><p>씬 로드 순서에 의존하던 초기화 흐름을 다시 정리했습니다. 채팅 문자열에 섞여 있던 명령 정보도 JSON의 type 필드로 분리해, 메시지 종류를 구분하도록 바꿨습니다.</p><details class="implementation-notes"><summary>함께 구현한 내용</summary><div><p>플레이어 이벤트 매니저를 두어 카트리지를 추가할 수 있는 흐름을 만들고, 뒤끝 CSV 데이터로 폭탄별 값을 적용했습니다. GitHub의 개인 작업 브랜치와 PR을 사용했고, 전시 빌드와 긴급 수정 브랜치를 구분했습니다.</p><p class="source-note">제공된 포트폴리오 기준 개발 진행 중이며, 일부 카트리지와 커뮤니티 확장 작업은 진행 과제로 기재되어 있습니다.</p></div></details></article>
-            <figure class="evidence-figure cartridge-evidence"><img src="assets/images/gunpowder-cartridge.webp" alt="GunPowder에서 플레이어가 카트리지를 선택하는 실제 구현 화면" width="1143" height="1071" loading="lazy"><figcaption>카트리지 선택 화면 <span>포트폴리오 14쪽</span></figcaption></figure>
+            <article class="case-story"><p class="case-label">개발 중 해결한 문제</p><h3>씬을 바꾸면,<br>채팅이 두 번 도착했습니다.</h3><p>빠르게 씬을 전환하거나 재접속할 때 같은 채널에 중복으로 연결되고, UI 초기화보다 호출이 먼저 실행되는 문제가 있었습니다.</p><p>씬 로드 순서에 의존하던 초기화 흐름을 다시 정리했습니다.</p><p>별도로, 채팅 문자열에 섞여 있던 명령 정보도 JSON의 type 필드로 분리해, 메시지 종류를 구분하도록 바꿨습니다.</p><details class="implementation-notes"><summary>함께 구현한 내용</summary><div><p>플레이어 이벤트 매니저를 두어 카트리지를 추가할 수 있는 흐름을 만들고, 뒤끝 CSV 데이터로 폭탄별 값을 적용했습니다. GitHub의 개인 작업 브랜치와 PR을 사용했고, 전시 빌드와 긴급 수정 브랜치를 구분했습니다.</p></div></details></article>
+            <figure class="evidence-figure"><video controls playsinline muted preload="none" width="800" height="450" poster="assets/clips/gunpowder-chat.webp" aria-label="GunPowder 인게임 채팅 시연"><source src="assets/clips/gunpowder-chat.mp4" type="video/mp4"></video><figcaption>게임 안에서 채팅 창을 열고 메시지를 주고받는 장면</figcaption></figure>
           </div>
         </section>
         <section id="cravant" class="project-panel" aria-labelledby="cravant-title">
@@ -72,9 +90,9 @@
             <div class="contribution"><h3>제가 맡은 부분</h3><ul><li><strong>솔로·파티 매치메이킹</strong><span>15인을 3명씩 5개 팀으로 나누고, 파티원이 같은 팀에 배정되는 흐름을 구현했습니다.</span></li><li><strong>친구와 캐릭터 선택</strong><span>Firestore 친구 기능, 파티 초대, 캐릭터 선택 동기화와 타임아웃을 처리했습니다.</span></li><li><strong>Behavior Tree 기반 Bot AI</strong><span>추종·공격·무기 사용을 구현하고 솔로 플레이용 봇 모드를 만들었습니다.</span></li></ul><p class="technology">Unity 6, C#, Photon PUN2, Firebase, Firestore</p></div>
           </div>
           <div class="project-context"><p>네트워크 연결부터 팀 배정, 캐릭터 선택, 봇 생성까지.<br>서로 의존하는 기능의 실행 순서를 맞췄습니다.</p><div class="project-links"><a class="video-link" href="https://www.youtube.com/watch?v=qjadgN9n8Js" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#play"/></svg>게임 영상</a></div></div>
-          <div class="case-layout">
-            <article class="case-story"><p class="case-label">개발 중 해결한 문제</p><h3>함께 들어온 파티가<br>다른 팀으로 나뉘었습니다.</h3><p>Photon의 프로퍼티는 호출 즉시 모든 클라이언트에 반영되지 않습니다. 준비가 끝나기 전에 팀 배정을 실행하면서 같은 파티가 다른 팀으로 나뉘었습니다.</p><p>준비 상태 프로퍼티를 추가하고, MasterClient가 모든 플레이어의 상태를 확인한 뒤 팀 배정을 시작하도록 바꿨습니다. 봇도 플레이어 스폰이 끝난 다음 생성하도록 순서를 정리했습니다.</p><details class="implementation-notes"><summary>함께 구현한 내용</summary><div><p>PhotonServerManager, Firebase UID 연동, MasterClient 전환, Room 관리와 팀 UI 동기화를 구현했습니다. 캐릭터 선택에는 중복 방지와 타임아웃 자동 선택을 적용했습니다.</p></div></details></article>
-            <figure class="evidence-figure"><img src="assets/images/cravant-lobby.webp" alt="CRAVANT 캐릭터와 매칭 인터페이스가 보이는 로비 화면" width="909" height="598" loading="lazy"><figcaption>파티에서 매치로 이어지는 로비 <span>포트폴리오 28쪽</span></figcaption><div class="sequence" aria-label="팀 배정 처리 순서"><span>준비 상태 확인</span><span>팀 배정</span><span>플레이어 생성</span><span>봇 생성</span></div></figure>
+          <div class="case-layout" id="cravant-team" role="region" aria-labelledby="team-title" tabindex="-1">
+            <article class="case-story"><p class="case-label">CRAVANT · 15인 매치 팀 배정</p><h3 id="team-title">함께 들어온 파티가<br>다른 팀으로 나뉘었습니다.</h3><p>Photon의 프로퍼티는 호출 즉시 모든 클라이언트에 반영되지 않습니다. 준비가 끝나기 전에 팀 배정을 실행하면서 같은 파티가 다른 팀으로 나뉘었습니다.</p><p>준비 상태 프로퍼티를 추가하고, MasterClient가 모든 플레이어의 상태를 확인한 뒤 팀 배정을 시작하도록 바꿨습니다. 봇도 플레이어 스폰이 끝난 다음 생성하도록 순서를 정리했습니다.</p><details class="implementation-notes"><summary>함께 구현한 내용</summary><div><p>PhotonServerManager, Firebase UID 연동, MasterClient 전환, Room 관리와 팀 UI 동기화를 구현했습니다. 캐릭터 선택에는 중복 방지와 타임아웃 자동 선택을 적용했습니다.</p></div></details></article>
+            <figure class="evidence-figure"><img src="assets/images/cravant-lobby.webp" alt="CRAVANT 캐릭터와 매칭 인터페이스가 보이는 로비 화면" width="909" height="598" loading="lazy"><figcaption>3명씩 5개 팀으로 배정하기 전의 파티 로비</figcaption><ol class="match-order" aria-label="수정한 팀 배정 처리 순서"><li>방장이 전원 준비 상태 확인</li><li>파티 단위로 팀 배정</li><li>플레이어 생성</li><li>봇 생성</li></ol></figure>
           </div>
         </section>
         <section id="cyberfunk" class="project-panel" aria-labelledby="cyberfunk-title">
@@ -85,14 +103,14 @@
           </div>
           <div class="project-context"><p>22일간의 팀 프로젝트에서 아이템의 생성·획득·장착·판매를<br>하나의 플레이 흐름으로 연결했습니다.</p><div class="project-links"><a class="video-link" href="https://www.youtube.com/watch?v=9pMLGwb90QE" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#play"/></svg>게임 영상</a><a href="https://github.com/AByeong/CyberPunkRiderWaifu" target="_blank" rel="noopener noreferrer">소스 코드</a></div></div>
           <div class="case-layout">
-            <article class="case-story"><p class="case-label">설계에서 고민한 부분</p><h3>장비 하나가 바뀔 때,<br>어디까지 알아야 할까요?</h3><p>장비 변경에 따라 스탯과 UI가 갱신되지만, 각 시스템이 서로를 직접 수정하지 않도록 이벤트로 변경 흐름을 연결했습니다. 장비의 스탯은 Decorator로 조합했습니다.</p><p>드롭 VFX에는 Addressables와 오브젝트 풀을 함께 적용했습니다. 리소스를 비동기로 준비하고, 씬을 전환할 때는 로드한 핸들을 명시적으로 해제했습니다.</p><details class="implementation-notes"><summary>함께 구현한 내용</summary><div><p>20슬롯 인벤토리와 타입별 장착 규칙, ScriptableObject 기반 아이템 생성, 희귀도별 드롭 확률을 구현했습니다. 아이템 드롭에는 순차 생성과 DOTween 연출을 적용하고, Raycast로 지면 위치를 보정했습니다.</p></div></details></article>
-            <figure class="evidence-figure"><img src="assets/images/cyberfunk-inventory.webp" alt="Cyberfunk Rider의 실제 인벤토리 및 장비 슬롯 구현 화면" width="1981" height="1219" loading="lazy"><figcaption>인벤토리와 장비 슬롯 <span>포트폴리오 39쪽</span></figcaption></figure>
+            <article class="case-story"><p class="case-label">설계에서 고민한 부분</p><h3>장비를 교체하면<br>스탯과 UI가 함께 바뀝니다.</h3><p>장비 변경에 따라 스탯과 UI가 갱신되지만, 각 시스템이 서로를 직접 수정하지 않도록 이벤트로 변경 흐름을 연결했습니다. 장비의 스탯은 Decorator로 조합했습니다.</p><p>드롭 VFX에는 Addressables와 오브젝트 풀을 함께 적용했습니다. 리소스를 비동기로 준비하고, 씬을 전환할 때는 로드한 핸들을 명시적으로 해제했습니다.</p><details class="implementation-notes"><summary>함께 구현한 내용</summary><div><p>20슬롯 인벤토리와 타입별 장착 규칙, ScriptableObject 기반 아이템 생성, 희귀도별 드롭 확률을 구현했습니다. 아이템 드롭에는 순차 생성과 DOTween 연출을 적용하고, Raycast로 지면 위치를 보정했습니다.</p></div></details></article>
+            <figure class="evidence-figure"><img src="assets/images/cyberfunk-inventory.webp" alt="Cyberfunk Rider의 실제 인벤토리 및 장비 슬롯 구현 화면" width="1981" height="1219" loading="lazy"><figcaption>20칸 인벤토리에서 아이템을 선택해 장비 슬롯에 장착합니다.</figcaption></figure>
           </div>
         </section>
         <section id="swordlord" class="project-panel" aria-labelledby="swordlord-title">
           <div class="project-heading"><div><p class="project-genre">모바일 방치형 RPG 프로토타입</p><h2 id="swordlord-title" class="korean-title">검물주 키우기</h2></div><p class="project-period">1인 프로젝트<span>2026.01.06 – 01.23</span><small>개발 중단</small></p></div>
           <div class="project-showcase">
-            <figure class="game-figure"><div class="mobile-game-stage"><img src="assets/images/swordlord-gameplay.webp" alt="검물주 키우기에서 검이 몬스터를 공격하는 실제 모바일 플레이 화면" width="349" height="558" loading="lazy"><img src="assets/images/swordlord-upgrade.webp" alt="검물주 키우기의 검 강화와 재화 화면" width="349" height="755" loading="lazy"></div><figcaption class="plain-caption">비행 검 전투와 재화·강화 화면</figcaption></figure>
+            <figure class="game-figure"><div class="mobile-game-stage"><video controls playsinline muted preload="none" width="176" height="380" poster="assets/clips/swordlord-flight.webp" aria-label="검물주 키우기 비행 검 공격 궤적"><source src="assets/clips/swordlord-flight.mp4" type="video/mp4"></video><img src="assets/images/swordlord-upgrade.webp" alt="검물주 키우기의 검 강화와 재화 화면" width="349" height="755" loading="lazy"></div><figcaption class="plain-caption">비행 검 전투와 재화·강화 화면</figcaption></figure>
             <div class="contribution"><h3>직접 설계한 시스템</h3><ul><li><strong>수학 곡선으로 움직이는 검</strong><span>Strategy 패턴으로 궤도를 분리하고 실행 중에 궤도를 바꿀 수 있게 만들었습니다.</span></li><li><strong>BigInteger 성장 수치</strong><span>공격력, 체력, 재화, 강화 비용 등 계속 커지는 수치를 다뤘습니다.</span></li><li><strong>적 AI와 스테이지 흐름</strong><span>6개 상태의 FSM, 오브젝트 풀링, 보스와 사망·부활 흐름을 연결했습니다.</span></li></ul><p class="technology">Unity, C#, BigInteger, BGDatabase, NavMesh</p></div>
           </div>
           <div class="project-context"><p>전투부터 저장과 성장까지 직접 만든 18일간의 실험입니다.<br>구조를 만드는 일과 게임을 검증하는 일의 순서를 배웠습니다.</p><div class="project-links"><a class="source-link" href="https://github.com/guardkim/SwordLordMaker" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#github"/></svg>소스 코드</a></div></div>
@@ -103,14 +121,14 @@
         </section>
       </div>
       <section id="about" class="about-section" aria-labelledby="about-title">
-        <div class="about-heading"><h2 id="about-title">코드 밖에서 배운 것들</h2><p>팀과 함께 일하고,<br>실제 사용 환경에서 확인합니다.</p></div>
+        <div class="about-heading"><h2 id="about-title">경력과 개발 환경</h2><p>팀과 함께 일하고,<br>실제 사용 환경에서 확인합니다.</p></div>
         <div class="about-content">
-          <div class="experience-list"><article><time>2026.06 –</time><h3>라이크코퍼레이션</h3><p>Unity 6 VR 클라이언트 개발</p></article><article><time>2025.10 – 2026.04</time><h3>라이크코퍼레이션</h3><p>성균관대학교 × 컴투스 교육 과정 운영 지원<br>수업 보조자료 구현, 가이드 작성</p></article><p class="source-note">경력과 개발 상태는 제공된 문서 기준입니다.</p></div>
+          <div class="experience-list"><article><time>2026.06 –</time><h3>라이크코퍼레이션</h3><p>Unity 6 VR 클라이언트 개발</p></article><article><time>2025.10 – 2026.04</time><h3>라이크코퍼레이션</h3><p>성균관대학교 × 컴투스 교육 과정 운영 지원<br>수업 보조자료 구현, 가이드 작성</p></article></div>
           <div class="working-notes"><h3>동작 여부와 사용 경험을 함께 봅니다.</h3><p>Meta XR SDK로 Hand Tracking, Grab, Poke Interaction을 구현하며 예상과 다른 방식으로 기기를 사용하는 상황을 만났습니다. 여러 HMD를 사용하는 전시·교육 환경에서는 콘텐츠와 함께 배포·운영도 고려했습니다.</p><p>Unity 외에도 Unreal의 전투·AI·에디터 확장, DirectX 11/HLSL 렌더링 프레임워크를 경험했습니다. 기능의 동작 원리를 이해하고, 다른 작업자가 읽을 수 있는 코드를 지향합니다.</p></div>
         </div>
       </section>
       <footer id="contact" class="contact-section">
-        <div><h2>함께 만들 게임이 궁금합니다.</h2><a class="email" href="mailto:kimkyoungho0726@gmail.com">kimkyoungho0726@gmail.com</a></div>
+        <div><h2>연락처</h2><a class="email" href="mailto:kimkyoungho0726@gmail.com">kimkyoungho0726@gmail.com</a></div>
         <div class="footer-links"><a href="https://github.com/guardkim" target="_blank" rel="noopener noreferrer">GitHub</a></div>
         <p class="copyright">© 2026 김경호</p>
       </footer>

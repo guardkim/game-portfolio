@@ -41,7 +41,7 @@ class Page(HTMLParser):
             assert "noopener" in attrs.get("rel", ""), "External tab needs noopener"
         if "download" in attrs:
             self.downloads.append(attrs["href"])
-        for attr in ("src", "href"):
+        for attr in ("src", "href", "poster"):
             if attrs.get(attr):
                 self.references.append(attrs[attr])
 

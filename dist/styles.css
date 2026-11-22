@@ -4,7 +4,7 @@
   --paper: #fff;
   --ink: #263648;
   --muted: #617186;
-  --accent: #98465f;
+  --accent: #833a55;
   --accent-pale: #f4e9ed;
   --line: #d6dfe8;
   --body: 'Gothic A1', sans-serif;
@@ -31,9 +31,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
 .portfolio-shell { display: grid; grid-template-columns: 226px minmax(0,1fr); align-items: start; gap: 36px; max-width: 1660px; margin: auto; padding: 26px 26px 0 40px; }
 .profile-rail { position: sticky; top: 45px; display: flex; flex-direction: column; min-height: 720px; height: calc(100svh - 75px); max-height: 1000px; padding: 14px 0 26px; }
 .name { display: inline-block; font-size: 36px; font-weight: 800; letter-spacing: -2px; line-height: 1.35; }
-.name span { color: var(--accent); }
 .occupation { font-size: 14px; font-weight: 600; margin-top: 10px; letter-spacing: -.5px; }
-.profile-intro { font-size: 13px; line-height: 1.9; color: var(--muted); margin-top: 21px; }
 .profile-links { display: flex; gap: 21px; margin-top: 21px; }
 .profile-links a { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; }
 .profile-links .icon { width: 16px; height: 16px; }
@@ -52,10 +50,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
 .rail-bottom { margin-top: auto; }
 .rail-about { display: inline-block; font-size: 12px; margin: 0 0 19px; }
 
-.folio { background: var(--paper); border-radius: 19px 19px 0 0; padding: 36px 45px 0; min-width: 0; }
-.folio-header { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding-bottom: 30px; border-bottom: 1px solid var(--line); }
-.folio-header h1 { font-size: 16px; font-weight: 600; letter-spacing: -.65px; }
-.folio-signature { font: 500 11px/1.5 var(--title); color: #7b8795; white-space: nowrap; }
+.folio { background: var(--paper); border-radius: 8px 8px 0 0; padding: 36px 45px 0; min-width: 0; }
 .project-panel { padding-top: 36px; }
 .project-panel + .project-panel { border-top: 1px solid var(--line); margin-top: 65px; }
 .is-interactive .project-panel { margin-top: 0; border-top: 0; animation: project-enter .28s ease-out both; }
@@ -71,11 +66,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
 .game-art { aspect-ratio: 1200/780; object-fit: cover; border-radius: 4px; background: #e8eef3; }
 #gunpowder .game-art { object-position: 48% center; }
 #cravant .game-art { object-position: center; }
-.recognition { display: flex; align-items: center; gap: 11px; padding: 21px 0 13px; }
-.award-mark { color: var(--accent); font-size: 31px; line-height: 1; }
-.recognition>span:nth-child(2) { color: var(--muted); font-size: 9px; line-height: 1.65; }
-.recognition strong { display: block; font-size: 12px; color: var(--ink); font-weight: 700; margin-bottom: 4px; }
-.exhibition { font-size: 10px; line-height: 1.7; color: var(--muted); margin-left: auto; text-align: right; }
 .plain-caption { margin-top: 14px; font-size: 10px; line-height: 1.8; color: var(--muted); }
 .contribution { padding: 1px 0 0; }
 .contribution h3 { color: var(--accent); font-size: 16px; font-weight: 700; margin-bottom: 17px; }
@@ -103,13 +93,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
 .implementation-notes>div { font-size: 14px; color: var(--muted); line-height: 1.95; padding-bottom: 10px; }
 .implementation-notes>div>p + p { margin-top: 12px; }
 .evidence-figure img { border-radius: 4px; background: var(--page); }
-.cartridge-evidence { width: 100%; max-width: 330px; justify-self: end; }
 .evidence-figure figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 5px; margin-top: 13px; font-size: 10px; color: var(--muted); }
-.evidence-figure figcaption span { color: #7a8797; font-size: 9px; }
-.sequence { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px 10px; padding-top: 27px; }
-.sequence span { font-size: 9px; position: relative; padding-top: 13px; color: var(--muted); }
-.sequence span::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #b8c9d7; position: absolute; top: 0; left: 0; }
-.sequence span:first-child::before { background: var(--accent); }
 .mobile-game-stage { display: flex; align-items: flex-end; justify-content: center; gap: 28px; height: 365px; overflow: hidden; padding: 26px 24px 0; background: #e5ece2; border-radius: 4px; }
 .mobile-game-stage img { width: auto; max-width: 46%; height: 100%; object-fit: contain; object-position: bottom; border-radius: 8px 8px 0 0; }
 .mobile-game-stage img:last-child { height: 93%; }
@@ -129,8 +113,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
 .experience-list time { color: #7a8797; font: 400 10px var(--title); }
 .experience-list h3 { font-size: 16px; font-weight: 700; margin-top: 6px; }
 .experience-list article p { font-size: 14px; line-height: 1.8; color: var(--muted); margin-top: 3px; }
-.source-note { color: #7a8797; font-size: 10px; line-height: 1.8; }
-.experience-list>.source-note { margin-top: 27px; }
 .working-notes h3 { font-size: 16px; font-weight: 700; line-height: 1.8; margin-bottom: 13px; }
 .working-notes p { font-size: 14px; color: var(--muted); line-height: 2; }
 .working-notes p + p { margin-top: 15px; }
@@ -144,6 +126,34 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
 .copyright { width: 100%; font-size: 9px; color: #7a8797; margin-top: 12px; }
 @keyframes project-enter { from { opacity: .4; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
+
+.current-role { display: block; margin: 22px 0 0; padding-left: 12px; border-left: 3px solid #549493; }
+.current-role p, .current-role span { color: var(--muted); font-size: 12px; }
+.current-role strong { display: block; font-size: 14px; }
+.case-shortcut { display: flex; align-items: center; gap: 15px; border-block: 1px solid #c8d7d8; background: #f0f6f5; padding: 9px 14px 9px 9px; }
+.case-shortcut img { width: 56px; height: 40px; object-fit: cover; }
+.case-shortcut strong, .case-shortcut small { display: block; }
+.case-shortcut strong { font-size: 14px; color: #244d50; }
+.case-shortcut small { font-size: 12px; color: #475e63; }
+.shortcut-action { margin-left: auto; white-space: nowrap; color: #244d50; font-size: 12px; font-weight: 700; }
+.case-shortcut:hover .shortcut-action { text-decoration: underline; }
+.combat-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+.combat-heading h2 { font: 800 clamp(45px,5.7vw,82px)/.97 var(--title); letter-spacing: -.065em; }
+.combat-showcase { display: grid; grid-template-columns: minmax(0,1.75fr) minmax(210px,1fr); align-items: center; gap: clamp(18px,3vw,44px); }
+video { display: block; width: 100%; height: auto; background: #172831; border-radius: 4px; }
+.combat-replay figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; font-size: 12px; margin-top: 8px; color: var(--muted); }
+.combat-replay a { text-decoration: underline; text-underline-offset: 3px; color: var(--ink); }
+.combat-copy h3 { font-size: clamp(22px,2.1vw,34px); line-height: 1.45; letter-spacing: -.055em; }
+.combat-copy > p:last-child, .gun-systems p { margin-top: 10px; font-size: 15px; color: var(--muted); line-height: 1.8; }
+.team-credit { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 12px; padding: 16px 0; margin-top: 15px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.team-credit strong { font-size: 15px; color: var(--ink); }
+.gun-systems { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 30px; margin-top: 24px; }
+.gun-systems h3 { font-size: 16px; }
+.gun-systems p { margin-top: 4px; }
+.match-order { padding: 0 0 0 25px; margin: 18px 0 0; color: #294d51; font-size: 14px; line-height: 2; }
+.match-order li::marker { font-family: var(--title); font-weight: 700; }
+#cravant-team:focus-visible { outline: 2px solid #478082; outline-offset: 4px; }
+.mobile-game-stage video { width: auto; max-width: 46%; height: 100%; object-fit: contain; }
 @media (min-width: 1500px) {
   .portfolio-shell { grid-template-columns: 244px minmax(0,1fr); gap: 44px; padding-left: 50px; }
   .folio { padding: 42px 54px 0; }
@@ -160,7 +170,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
   .project-showcase { grid-template-columns: minmax(0,1.4fr) minmax(220px,1fr); gap: 23px; }
   .game-art { aspect-ratio: 1.2; }
   .contribution li + li { margin-top: 13px; }
-  .exhibition { display: none; }
   .project-context { display: block; }
   .project-links { justify-content: flex-start; margin-top: 20px; }
   .case-layout { gap: 30px; }
@@ -174,7 +183,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
   .identity { position: relative; }
   .name { font-size: 31px; }
   .occupation { font-size: 12px; margin-top: 5px; }
-  .profile-intro { margin-top: 12px; font-size: 11px; }
   .profile-links { margin-top: 15px; }
   .project-nav { margin: 0 -5px; grid-row: 2; grid-column: 1/-1; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 6px; }
   .nav-heading { display: none; }
@@ -186,7 +194,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
   .rail-bottom { margin-top: 10px; justify-self: end; align-self: start; display: flex; flex-direction: column-reverse; width: 185px; }
   .rail-about { margin: 12px 0 0; text-align: right; font-size: 10px; }
   .folio { padding: 30px 35px 0; }
-  .folio-header { padding-bottom: 22px; }
   .project-panel { padding-top: 29px; }
   .project-showcase { grid-template-columns: minmax(0,1.6fr) minmax(220px,1fr); }
   .project-heading h2 { font-size: 45px; }
@@ -200,7 +207,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
   .profile-rail { padding-inline: 10px; gap: 21px 15px; }
   .name { font-size: 29px; }
   .occupation { font-size: 10px; letter-spacing: -.2px; }
-  .profile-intro { display: none; }
   .profile-links { gap: 15px; margin-top: 16px; }
   .profile-links a { font-size: 10px; gap: 5px; }
   .profile-links .icon { width: 14px; height: 14px; }
@@ -212,9 +218,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
   .project-index small { font-size: 9px; }
   .project-index img { width: 35px; height: 37px; }
   .folio { padding: 23px 20px 0; border-radius: 12px 12px 0 0; }
-  .folio-header { padding-bottom: 20px; }
-  .folio-header h1 { font-size: 12px; letter-spacing: -.5px; }
-  .folio-signature { display: none; }
   .project-heading { gap: 12px; margin-bottom: 20px; align-items: flex-end; }
   .project-heading h2 { font-size: 35px; letter-spacing: -1.5px; }
   .project-heading h2.korean-title { font-size: 29px; letter-spacing: -1.5px; }
@@ -227,11 +230,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
   #cyberfunk .project-period span { display: inline; margin-left: 10px; }
   .project-showcase { grid-template-columns: 1fr; gap: 24px; }
   .game-art { aspect-ratio: 1200/678; }
-  .recognition { padding: 17px 0 0; gap: 10px; }
-  .recognition strong { font-size: 11px; margin-bottom: 3px; }
-  .recognition>span:nth-child(2) { font-size: 8px; }
-  .award-mark { font-size: 27px; }
-  .exhibition { display: block; font-size: 8px; }
   .contribution h3 { font-size: 15px; margin-bottom: 14px; }
   .contribution strong { font-size: 15px; }
   .contribution li span { font-size: 14px; line-height: 1.85; }
@@ -248,7 +246,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
   .case-story>p:not(.case-label) { font-size: 14px; line-height: 1.95; }
   .case-label { font-size: 10px; }
   .implementation-notes>div { font-size: 13px; }
-  .cartridge-evidence { max-width: 280px; justify-self: center; }
   .evidence-figure figcaption { font-size: 9px; }
   .mobile-game-stage { height: 320px; padding-top: 22px; gap: 18px; }
   .reflection-note { padding: 28px; }
@@ -268,6 +265,32 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
   .footer-links { flex-direction: row; justify-content: flex-start; gap: 26px; margin-top: 24px; font-size: 10px; }
   .copyright { margin-top: 28px; font-size: 8px; }
 }
+@media (max-width: 700px) {
+  .profile-rail { grid-template-columns: 1fr; gap: 13px; padding-bottom: 16px; }
+  .identity { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: start; column-gap: 12px; }
+  .occupation { grid-column: 1; font-size: 12px; }
+  .current-role { grid-column: 1/-1; margin-top: 12px; }
+  .current-role p, .current-role strong, .current-role span { display: inline; margin-right: 6px; font-size: 12px; }
+  .current-role span { white-space: nowrap; }
+  .profile-links { grid-column: 2; grid-row: 1; }
+  .project-nav { display: flex; flex-wrap: wrap; margin: 0; gap: 4px 8px; }
+  .project-nav .project-index { min-height: 32px; padding: 3px 5px; }
+  .project-index img, .project-index small { display: none; }
+  .project-index[aria-current]::before { left: 4px; right: 4px; }
+  .rail-bottom { display: none; }
+  .case-shortcut { gap: 9px; padding: 7px; }
+  .case-shortcut img { width: 38px; height: 38px; }
+  .case-shortcut strong { font-size: 12px; }
+  .case-shortcut small, .shortcut-action { font-size: 10px; }
+  .combat-showcase { grid-template-columns: 1fr; gap: 15px; }
+  .combat-copy { grid-row: 1; }
+  .combat-copy .case-label { margin-bottom: 4px; }
+  .combat-heading { margin-bottom: 14px; }
+  .combat-heading h2 { font-size: clamp(36px,10.5vw,50px); }
+  .combat-copy h3 { font-size: 21px; }
+  .combat-copy > p:last-child { margin-top: 5px; font-size: 14px; }
+  .gun-systems { grid-template-columns: 1fr; gap: 16px; }
+}
 @media (max-width: 360px) {
   .portfolio-shell { padding-inline: 9px; }
   .profile-rail { padding-inline: 8px; column-gap: 8px; }
@@ -282,7 +305,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
   .project-heading h2.korean-title { font-size: 25px; }
   .project-period { font-size: 8px; }
   .project-period span { font-size: 7px; }
-  .exhibition { display: none; }
   .contact-section { margin-inline: -17px; padding-inline: 17px; }
   .email { font-size: 13px; }
 }

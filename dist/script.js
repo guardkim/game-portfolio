@@ -5,10 +5,14 @@ let selectedProject = panels[0].id;
 
 function selectProject(announce = false) {
   const requested = location.hash.slice(1) || panels[0].id;
-  const next = panels.find((panel) => panel.id === requested);
+  const caseTarget = requested === 'cravant-team' ? document.getElementById(requested) : null;
+  const next = caseTarget ? caseTarget.closest('.project-panel') : panels.find((panel) => panel.id === requested);
   if (next) selectedProject = next.id;
 
-  panels.forEach((panel) => { panel.hidden = panel.id !== selectedProject; });
+  panels.forEach((panel) => {
+    panel.hidden = panel.id !== selectedProject;
+    if (panel.hidden) panel.querySelectorAll('video').forEach((video) => video.pause());
+  });
   projectLinks.forEach((link) => {
     if (link.hash === `#${selectedProject}`) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
@@ -16,7 +20,12 @@ function selectProject(announce = false) {
 
   if (announce && next) {
     announcement.textContent = `${next.querySelector('h2').textContent} 프로젝트를 표시합니다.`;
-    document.getElementById('main').scrollIntoView({ block: 'start' });
+  }
+  if (caseTarget) {
+    caseTarget.focus({ preventScroll: true });
+    caseTarget.scrollIntoView({ block: 'start' });
+  } else if (announce && next) {
+    next.scrollIntoView({ block: 'start' });
   }
 }
 
